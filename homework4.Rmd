@@ -1,0 +1,54 @@
+---
+title: "Homework4"
+author: "Trevor Caughlin"
+date: "February 6, 2018"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Question 1. Gamma distribution
+Explore the properties of the gamma distribution using the probability density function in R:
+
+```{r gamma}
+args(dgamma)
+```
+
+Use the `curve` function to explore how the shape and rate parameters alter the likelihood function. As output, include (1) a brief written explanation of how the shape and rate parameters determine the behavior of the function and (2) several different curves showing different parameter values for `dgamma` (For an example of similar code, see the beta distribution section of lecture 9).
+
+Question 2. Find a published paper in your research area that uses either gamma or beta regression. Briefly (in one paragraph) answer the following questions:
+
+What were the response and predictor variables? 
+How were the results presented?
+Do you agree with the interpretation of the results?
+
+If you have trouble finding a paper that uses one of these analyses, here are several choices:
+
+http://onlinelibrary.wiley.com/doi/10.1111/mec.12059/full
+http://onlinelibrary.wiley.com/doi/10.1111/1365-2664.12531/full
+http://onlinelibrary.wiley.com/doi/10.1002/rse2.33/full
+
+Question 3: Apply beta or gamma regression to your own data (or a dataset you find on data dryad). Note that the notation for gamma and beta regression is slightly different than the other models we have covered:
+
+```{r gamglm}
+#beta regression:
+library("betareg")
+#beta_model=betareg(response~predictor)
+
+#gamma regression:
+#gamma_model=glm(response~predictor,family=Gamma(link="log"))
+
+```
+
+As output, include (1) a plot with model predictions overlaid on raw data, (2) a verbal description of effect size, and (3) estimates of significance, using `confint`
+
+Question 4: Simulate a gamma-distributed random variable that is related to a predictor variable using `rgamma`. Describe how you reparameterized R's default gamma parameters to represent a mean value. Include a plot of your response vs. predictor variable, and a description of a biological process your data could represent.
+
+Hint:
+```{r gamsim}
+#y <- rgamma(n, rate = shape / y_mean, shape = shape)
+```
